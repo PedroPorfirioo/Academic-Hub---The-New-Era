@@ -343,19 +343,20 @@
 
 
   <script>
-    //Código do Java script para abrir e fechar o menu lateral do botão de 3 riscos
+    //codigo do menu lateral
     function openMenuLateral() {
-      document.getElementById("menuLateral").style.width = "250px";
-      document.getElementById("overlay").classList.add("show");
+        document.getElementById("menuLateral").style.width = "250px";
+        document.getElementById("overlay").classList.add("show");
+        document.querySelector(".hamburger-btn").style.display = "none";
     }
 
     function closeMenuLateral() {
-      document.getElementById("menuLateral").style.width = "0";
-      document.getElementById("overlay").classList.remove("show");
+        document.getElementById("menuLateral").style.width = "0";
+        document.getElementById("overlay").classList.remove("show");
+        document.querySelector(".hamburger-btn").style.display = "block";
     }
-  </script>
 
-
+</script>
 </body>
 
 </html>

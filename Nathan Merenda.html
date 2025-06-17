@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio da Merenda</title>
+  <!-- Fonte Jaro e ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* NavBar  */
+    header {
+      background: linear-gradient(to right, #8a0fdc, #c6d42a);
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      justify-content: space-between;
+      color: white;
+      height: 60px;
+      /* Altura fixa para a navbar para deixar ela do mesmo tamanho  */
+    }
+
+    header .icons i {
+      width: 24px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    header .icons {
+      margin-right: 80px;
+      margin-left: 20px;
+    }
+
+    .search-bar {
+      flex-grow: 1;
+      margin: 0 20px;
+    }
+
+    .search-bar input {
+      width: 80%;
+      padding: 5px;
+    }
+
+    .logo {
+      font-family: 'Jaro', sans-serif;
+      font-size: 40px;
+      padding-left: 30px;
+    }
+
+    .hamburger-btn {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 1001;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger-btn .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    .menu-lateral {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #520a81;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .menu-lateral a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .menu-lateral a:hover {
+      background-color: #340752;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 999;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    /* Estilo da imagem */
+    .hamburguer-container {
+      width: 94%;
+      margin: 5px auto 20px;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .hamburguer-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Conteúdo da merenda */
+    .container {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .dia {
+      background: #8a0fdc;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .dia:hover {
+      background: #7a0bc2;
+    }
+
+    .cardapio {
+      max-height: 0;
+      overflow: hidden;
+      background: #f9f9f9;
+      border-radius: 0 0 8px 8px;
+      margin-top: -10px;
+      transition: max-height 0.5s ease-out, padding 0.3s ease;
+    }
+
+    .cardapio.aberto {
+      max-height: 300px; 
+      padding: 15px;
+      margin-top: 5px;
+    }
+
+    .cardapio p {
+      margin: 5px 0;
+      opacity: 0;
+      transition: opacity 0.3s ease 0.2s; 
+    }
+
+    .cardapio.aberto p {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">AcademicHub</div>
+    <div class="icons">
+      <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>
+      <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar...">
+    </div>
+    <div class="icons">
+      <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
+      <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+      <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i>
+    </div>
+
+    <!-- Menu hamburguer -->
+    <button class="hamburger-btn" onclick="openMenuLateral()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+
+    <!-- Menu lateral -->
+    <div class="menu-lateral" id="menuLateral">
+      <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+      <a href="reclameAqui.html">Reclame Aqui</a>
+      <a href="suporte.html">Suporte</a>
+      <a href="alunosDestaque.html">Alunos Destaque</a>
+      <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+      <a href="creditos.html">Créditos</a>
+    </div>
+
+    <!-- Fundo escurecido -->
+    <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
+  </header>
+
+  <!-- Container da imagem ajustada -->
+  <div class="hamburguer-container">
+    <img src="https://i.ibb.co/NBcQ6rF/Sem-t-tulo.png" alt="Cardápio da Merenda" class="hamburguer-image">
+  </div>
+
+  <!-- Conteúdo da merenda -->
+  <div class="container">
+    <h1>Cardápio da Merenda</h1>
+
+    <div class="dia" onclick="toggleCardapio(this)">Segunda-feira</div>
+    <div class="cardapio">
+      <p><strong>Café da manhã:</strong> Pão com manteiga + leite com chocolate</p>
+      <p><strong>Almoço:</strong> Arroz, feijão, frango assado e salada</p>
+      <p><strong>Lanche:</strong> Suco e bolo de laranja</p>
+    </div>
+
+    <div class="dia" onclick="toggleCardapio(this)">Terça-feira</div>
+    <div class="cardapio">
+      <p><strong>Café da manhã:</strong> Biscoito + iogurte</p>
+      <p><strong>Almoço:</strong> Macarrão com molho de tomate e carne moída</p>
+      <p><strong>Lanche:</strong> Fruta + água</p>
+    </div>
+
+    <div class="dia" onclick="toggleCardapio(this)">Quarta-feira</div>
+    <div class="cardapio">
+      <p><strong>Café da manhã:</strong> Pão com queijo + achocolatado</p>
+      <p><strong>Almoço:</strong> Arroz integral, lentilha e peixe grelhado</p>
+      <p><strong>Lanche:</strong> Vitamina de banana</p>
+    </div>
+
+    <div class="dia" onclick="toggleCardapio(this)">Quinta-feira</div>
+    <div class="cardapio">
+      <p><strong>Café da manhã:</strong> Cereal + leite</p>
+      <p><strong>Almoço:</strong> Purê de batata, carne assada e legumes</p>
+      <p><strong>Lanche:</strong> Pão doce + suco</p>
+    </div>
+
+    <div class="dia" onclick="toggleCardapio(this)">Sexta-feira</div>
+    <div class="cardapio">
+      <p><strong>Café da manhã:</strong> Tapioca + café com leite</p>
+      <p><strong>Almoço:</strong> Arroz, feijão tropeiro e ovos</p>
+      <p><strong>Lanche:</strong> Salada de frutas</p>
+    </div>
+  </div>
+
+  <script>
+    // Funções do menu lateral
+    function openMenuLateral() {
+      document.getElementById("menuLateral").style.width = "250px";
+      document.getElementById("overlay").classList.add("show");
+    }
+
+    function closeMenuLateral() {
+      document.getElementById("menuLateral").style.width = "0";
+      document.getElementById("overlay").classList.remove("show");
+    }
+
+    // Função para mostrar/esconder cardápio com animação
+    function toggleCardapio(element) {
+      const cardapio = element.nextElementSibling;
+      
+      // Fecha todos os outros cardápios abertos primeiro
+      document.querySelectorAll('.cardapio').forEach(item => {
+        if (item !== cardapio && item.classList.contains('aberto')) {
+          item.classList.remove('aberto');
+          // Resetar a opacidade dos parágrafos quando fechar
+          setTimeout(() => {
+            item.querySelectorAll('p').forEach(p => p.style.opacity = '0');
+          }, 200);
+        }
+      });
+      
+      // Alterna o cardápio clicado
+      cardapio.classList.toggle('aberto');
+      
+      // Ajusta a opacidade dos parágrafos
+      if (cardapio.classList.contains('aberto')) {
+        setTimeout(() => {
+          cardapio.querySelectorAll('p').forEach(p => p.style.opacity = '1');
+        }, 200);
+      } else {
+        cardapio.querySelectorAll('p').forEach(p => p.style.opacity = '0');
+      }
+    }
+  </script>
+</body>
+
+</html>

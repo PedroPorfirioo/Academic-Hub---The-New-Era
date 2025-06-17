@@ -18,7 +18,7 @@
          /* começo dos cods do banner*/
 
          header {
-        background: linear-gradient(to right, #8a0fdc, #c6d42a);
+        background: linear-gradient(to right, #8a0fdc, #eaff05);
          display: flex;
          align-items: center;
          padding: 10px;
@@ -155,7 +155,7 @@
 }
 
 /* Estilo base para as disciplinas */
-.matematica, .portugues, .historia {
+.matematica, .portugues, .historia, .Front-End {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -170,7 +170,7 @@
 }
 
 /* Estilo das imagens */
-.matematica img, .portugues img, .historia img {
+.matematica img, .portugues img, .historia img, .Front-End img {
     width: 100px;
     height: auto;
     border-radius: 8px;
@@ -293,9 +293,11 @@
 
     <!--Parte principal da página-->
 
-    <p class="categoria">Professores</p>
+    <h2 class="categoria">Professores</h2>
     <h1 class="turma">2DS_B</h1>
     <div class="container"> 
+
+          <!-- Matemática -->
 
     <div class="matematica">
         <img src="https://lh3.googleusercontent.com/a-/ALV-UjW91oHgn0GCVts_RKDfpXubTb6PGwMBcBUZgymGFiETowfCMLyK=s40-c" alt="Foto de Perfil">
@@ -306,6 +308,8 @@
         </div>
     </div>
 
+    <!-- Português -->
+
     <div class="portugues">
         <img src="https://lh3.googleusercontent.com/a-/ALV-UjXXinDj9-cRA75oViTAyuthNiuzdZQ_BFSPmaC5jge0KYRkZkf7=s32-c" alt="Foto de Perfil">
         <div class="conteudo">
@@ -315,11 +319,24 @@
         </div>
       </div>
 
+ 
+      <!-- História  -->
+
         <div class="historia">
         <img src="https://lh3.googleusercontent.com/a-/ALV-UjWR7pprmTwBRegchv2kGZ6D-VzZN8qLiON0eR-SEgCZ0BM2FPo=s32-c" alt="Foto de Perfil">
         <div class="conteudo">
             <h2>História</h2>
             <p class="texto">Maikon</p>
+            <a href="./professoresDetalhes.html" class="detalhes"> <b>Detalhes</b> </a>
+        </div>
+    </div>  
+    
+    <!-- Front-End -->
+     <div class="Front-End">
+        <img src="https://lh3.googleusercontent.com/a-/ALV-UjW_Y-Ki28Yyf45f8kOxCTu89ddoPWqYeujMUFTkxgsNvtJ5mabP=s32-c" alt="Foto de Perfil">
+        <div class="conteudo">
+            <h2>Front-End</h2>
+            <p class="texto">Luis</p>
             <a href="./professoresDetalhes.html" class="detalhes"> <b>Detalhes</b> </a>
         </div>
     </div>

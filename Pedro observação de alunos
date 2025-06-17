@@ -1,276 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic-HUB - Programação</title>
+    <title>Observações do Aluno </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
-
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-        :root {
-            --primary-gradient: linear-gradient(to right, #4a007c, #b300ff);
-            /* Dark purple to light purple */
-            --text-color-light: #ffffff;
-            --text-color-dark: #333;
-            --card-background: #ffffff;
-            --border-color: #ddd;
-            --input-background: #f0f2f5;
-            --username-color: #000;
-            --brown-border-color: #8B4513;
-            /* A warm brown for História */
-            --blue-border-color: #007bff;
-            /* A standard blue for Programação */
-            --maroon-border-color: #800000;
-            /* A dark red/maroon for Língua Portuguesa */
-        }
-
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f0f2f5;
-            /* Light grey background */
-            color: var(--text-color-dark);
-        }
-
-        .navbar {
-            background: var(--primary-gradient);
-            color: var(--text-color-light);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar .logo {
-            font-weight: 700;
-            font-size: 1.5em;
-        }
-
-        .navbar .menu-icon {
-            cursor: pointer;
-        }
-
-        .navbar .menu-icon .bar {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-color-light);
-            margin: 5px 0;
-            border-radius: 2px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            /* Adjust as needed */
-            overflow: hidden;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .hero-title {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: var(--text-color-light);
-            font-size: 2.5em;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        .content-wrapper {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            /* Allows wrapping on smaller screens */
-        }
-
-        .recados-box {
-            background-color: var(--card-background);
-            border: 1px solid var(--border-color);
-            /* Default border color */
-            border-radius: 8px;
-            padding: 20px;
-            width: 300px;
-            /* Fixed width for the recados box */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            flex-shrink: 0;
-            /* Prevents it from shrinking */
-
-        }
-
-        /* Specific styles for different recados box borders */
-        .recados-box.brown-border {
-            border: 3px solid var(--brown-border-color);
-        }
-
-        .recados-box.blue-border {
-            border: 1px solid var(--border-color);
-        }
-
-        .recados-box.maroon-border {
-            border: 3px solid var(--maroon-border-color);
-        }
-
-
-        .recados-box h2 {
-            font-size: 1.2em;
-            color: var(--text-color-dark);
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        .recado-item {
-            margin-bottom: 10px;
-        }
-
-        .recado-item p {
-            margin: 0;
-            color: var(--text-color-dark);
-        }
-
-        .main-content {
-            flex-grow: 1;
-            /* Allows it to take remaining space */
-            min-width: 400px;
-            /* Minimum width before wrapping */
-        }
-
-        .post-input {
-            background-color: var(--card-background);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .post-input .profile-pic {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 1px solid var(--border-color);
-        }
-
-        .post-input input {
-            flex-grow: 1;
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 10px 15px;
-            font-size: 1em;
-            background-color: var(--input-background);
-            outline: none;
-        }
-
-        .post-input input::placeholder {
-            color: #888;
-        }
-
-        .post-card {
-            background-color: var(--card-background);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 15px;
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .post-card .profile-pic {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 1px solid var(--border-color);
-        }
-
-        .post-details {
-            flex-grow: 1;
-        }
-
-        .post-details .username {
-            font-weight: 700;
-            color: var(--username-color);
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .post-details .post-text {
-            margin: 0;
-            color: var(--text-color-dark);
-            line-height: 1.5;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .content-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .recados-box {
-                width: 100%;
-                /* Full width on smaller screens */
-                margin-bottom: 20px;
-            }
-
-            .hero-title {
-                font-size: 1.8em;
-                bottom: 10px;
-                left: 10px;
-            }
-
-            .navbar .logo {
-                font-size: 1.2em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
-            }
-
-            .hero-section {
-                height: 180px;
-            }
-
-            .hero-title {
-                font-size: 1.5em;
-            }
-
-            .navbar {
-                padding: 10px 15px;
-            }
+            padding: 0;
+            background-color: #ffffff;
         }
 
         header {
@@ -286,7 +28,10 @@
             width: 24px;
             margin: 0 10px;
             cursor: pointer;
+
+
         }
+
 
         header .icons {
             margin-right: 80px;
@@ -303,10 +48,19 @@
             padding: 5px;
         }
 
+
+        .sidebar {
+            width: 200px;
+            background: #e4e0e0;
+            padding: 15px;
+            position: fixed;
+            height: 100%;
+        }
+
         /* Botão hambúrguer no canto direito */
         .hamburger-btn {
             position: absolute;
-            top: 20px;
+            top: 17px;
             right: 40px;
             z-index: 1001;
             background: none;
@@ -365,6 +119,64 @@
             display: block;
         }
 
+
+        .imagem {
+            width: 250px;
+            height: 250px;
+            margin-left: 50px;
+
+        }
+
+        .imagem img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .retangulo {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 700px;
+            height: 240px;
+            margin-left: 50px;
+
+
+        }
+
+        .retangulo h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .retangulo ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .retangulo li {
+            margin-bottom: 6px;
+        }
+
+        .container {
+
+            display: flex;
+            align-items: flex-start;
+            margin-left: 60px;
+            margin-top: 40px;
+            gap: 40px;
+
+
+        }
+
+        .tituloPrincipal {
+            margin-left: 110px;
+            margin-top: 50px;
+        }
+
         .logo {
 
             font-family: 'Jaro', sans-serif;
@@ -374,26 +186,25 @@
         }
     </style>
 
-</head>
-
 <body>
     <header>
         <div class="logo">AcademicHub</div>
         <div class="icons">
             <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>
             <!-- Redireciona para a tela inicial -->
-            <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+            <i class="fas fa-school" alt="Escola"></i>
         </div>
         <div class="search-bar">
             <input type="text" class="Pesquisar" id="searchInput" placeholder="Pesquisar..." oninput="searchPosts()">
         </div>
         <div class="icons">
-            <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
-            <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+            <i class="fas fa-comments" alt="Chat"></i>
+            <i class="fas fa-bell" alt="Notificações"></i>
             <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i>
             <!-- Redireciona para o perfil -->
 
         </div>
+
 
         <!-- Botão hambúrguer -->
         <button class="hamburger-btn" onclick="openMenuLateral()">
@@ -418,88 +229,28 @@
         <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
 
 
-
     </header>
-
-
-    <main class="container">
-        <section class="hero-section">
-            <img src="https://idocode.com.br/wp-content/uploads/2021/08/Linguagens-de-programacao-quais-as-melhores-empresas-usam-.jpg"
-                alt="Programming code on a screen" class="hero-image">
-            <h1 class="hero-title">Programação - 2º Ano B Manha</h1>
-        </section>
-
-
-        <div class="content-wrapper">
-            <aside class="recados-box blue-border">
-                <h2>RECADOS</h2>
-                <div class="recado-item">
-                    <p>quiz de recuperação</p>
-                </div>
-            </aside>
-
-
-            <section class="main-content">
-                <div class="post-input">
-                    <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
-                        alt="User Profile" class="profile-pic">
-                    <input type="text" placeholder="escreva algo para turma">
-                </div>
-
-                <div class="post-card">
-                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjW_Y-Ki28Yyf45f8kOxCTu89ddoPWqYeujMUFTkxgsNvtJ5mabP=s40-c"
-                        alt="Imagem Prof Luis" class="profile-pic">
-                    <div class="post-details">
-                        <span class="username">LUIS HENRIQUE DE PAULA JUSKI</span>
-                        <p class="post-text">bom dia alunos!!! prova hoje</p>
-                    </div>
-                </div>
-            </section>
+    <h1 class="tituloPrincipal">Observações</h1>
+    <div class="container">
+        <div class="imagem">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+                <!-- se tiver um back-end a imagem poderá ser customizadas pelo aluno (igual o do classroom) -!>
+            <!-- se tiver um back-end a imagem poderá ser customizadas pelo aluno (igual o do classroom) -->
+            <alt="Imagem do Aluno">
         </div>
 
-        <div class="post-card">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW_Y-Ki28Yyf45f8kOxCTu89ddoPWqYeujMUFTkxgsNvtJ5mabP=s40-c"
-                alt="Imagem Prof Luis" class="profile-pic">
-            <div class="post-details">
-                <span class="username">LUIS HENRIQUE DE PAULA JUSKI</span>
-                <p>Data das provas:</p>
-                <p>Front-End: 26/03 (Quarta-feira)</p>
-                <p>Banco de Dados: 27/03 (Quinta-feira)</p>
-                <p>Análise e Projeto de Sistemas: 28/03 (Sexta-feira)</p>
-            </div>
+        <div class="retangulo">
+            <h2>Otávio da Costa Maia</h2>
+            <ul>
+                <li>Deficiências</li>
+                <p>Problemas de atenção e muita conversa em sala de aula.</p>
+                <li>Professor de Apoio</li>
+                <p>Não possui.</p>
+                <li>Alguma nota específica ou recomendação de como respeitar o seu tempo e limites.</li>
+                <p>Na média</p>
+            </ul>
         </div>
-        </section>
-        </div>
-
-
-        <div class="post-card">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW_Y-Ki28Yyf45f8kOxCTu89ddoPWqYeujMUFTkxgsNvtJ5mabP=s40-c"
-                alt="Imagem Prof Luis" class="profile-pic">
-            <div class="post-details">
-                <span class="username">LUIS HENRIQUE DE PAULA JUSKI</span>
-                <p>Boa noite pessoal, </p>
-                <p>Estudem pelas nossas perguntas do Padlet que a avaliação estará muito semelhante a elas, ok?</p>
-                </a>
-            </div>
-        </div>
-        </section>
-        </div>
-
-        <div class="post-card">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW_Y-Ki28Yyf45f8kOxCTu89ddoPWqYeujMUFTkxgsNvtJ5mabP=s40-c"
-                alt="Imagem Prof Luis" class="profile-pic">
-            <div class="post-details">
-                <span class="username">LUIS HENRIQUE DE PAULA JUSKI</span>
-                <a href="https://padlet.com/juskiluis/front-end-2qvyv4hdrlrmhux5">
-                    <p>https://padlet.com/juskiluis/front-end-2qvyv4hdrlrmhux5</p>
-                </a>
-            </div>
-        </div>
-        </section>
-        </div>
-
-
-    </main>
+    </div>
 
     <script>
         function openMenuLateral() {
@@ -515,7 +266,7 @@
         }
 
     </script>
-
 </body>
+
 
 </html>

@@ -78,6 +78,8 @@
             border-radius: 8px;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
         }
 
         .hero-image {
@@ -117,6 +119,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             flex-shrink: 0;
             /* Prevents it from shrinking */
+
         }
 
         /* Specific styles for different recados box borders */
@@ -283,10 +286,7 @@
             width: 24px;
             margin: 0 10px;
             cursor: pointer;
-
-
         }
-
 
         header .icons {
             margin-right: 80px;
@@ -317,7 +317,7 @@
         .hamburger-btn .bar {
             width: 25px;
             height: 3px;
-            background-color: #272b64;
+            background-color: #ffffff;
             margin: 5px 0;
             transition: 0.3s;
         }
@@ -429,6 +429,7 @@
             <h1 class="hero-title">Programação - 2º Ano B Manha</h1>
         </section>
 
+
         <div class="content-wrapper">
             <aside class="recados-box blue-border">
                 <h2>RECADOS</h2>
@@ -436,6 +437,7 @@
                     <p>quiz de recuperação</p>
                 </div>
             </aside>
+
 
             <section class="main-content">
                 <div class="post-input">
@@ -454,18 +456,64 @@
                 </div>
             </section>
         </div>
+
+        <div class="post-card">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW_Y-Ki28Yyf45f8kOxCTu89ddoPWqYeujMUFTkxgsNvtJ5mabP=s40-c"
+                alt="Imagem Prof Luis" class="profile-pic">
+            <div class="post-details">
+                <span class="username">LUIS HENRIQUE DE PAULA JUSKI</span>
+                <p>Data das provas:</p>
+                <p>Front-End: 26/03 (Quarta-feira)</p>
+                <p>Banco de Dados: 27/03 (Quinta-feira)</p>
+                <p>Análise e Projeto de Sistemas: 28/03 (Sexta-feira)</p>
+            </div>
+        </div>
+        </section>
+        </div>
+
+
+        <div class="post-card">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW_Y-Ki28Yyf45f8kOxCTu89ddoPWqYeujMUFTkxgsNvtJ5mabP=s40-c"
+                alt="Imagem Prof Luis" class="profile-pic">
+            <div class="post-details">
+                <span class="username">LUIS HENRIQUE DE PAULA JUSKI</span>
+                <p>Boa noite pessoal, </p>
+                <p>Estudem pelas nossas perguntas do Padlet que a avaliação estará muito semelhante a elas, ok?</p>
+                </a>
+            </div>
+        </div>
+        </section>
+        </div>
+
+        <div class="post-card">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW_Y-Ki28Yyf45f8kOxCTu89ddoPWqYeujMUFTkxgsNvtJ5mabP=s40-c"
+                alt="Imagem Prof Luis" class="profile-pic">
+            <div class="post-details">
+                <span class="username">LUIS HENRIQUE DE PAULA JUSKI</span>
+                <a href="https://padlet.com/juskiluis/front-end-2qvyv4hdrlrmhux5">
+                    <p>https://padlet.com/juskiluis/front-end-2qvyv4hdrlrmhux5</p>
+                </a>
+            </div>
+        </div>
+        </section>
+        </div>
+
+
     </main>
+
     <script>
-        //Código do Menu lateral
         function openMenuLateral() {
             document.getElementById("menuLateral").style.width = "250px";
             document.getElementById("overlay").classList.add("show");
+            document.querySelector(".hamburger-btn").style.display = "none";
         }
 
         function closeMenuLateral() {
             document.getElementById("menuLateral").style.width = "0";
             document.getElementById("overlay").classList.remove("show");
+            document.querySelector(".hamburger-btn").style.display = "block";
         }
+
     </script>
 
 </body>

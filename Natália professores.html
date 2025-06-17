@@ -39,6 +39,7 @@
 
         /* fim dos cod do banner*/
 
+        /* Barra de pesquisa */
 
         .search-bar {
             flex-grow: 1;
@@ -49,6 +50,7 @@
             padding: 5px;
         }
 
+        /*Direcionamento dos botões*/
 
        .botoesDeRedirecionamento {
         display: flex;
@@ -69,7 +71,7 @@
        cursor: pointer;
        }
 
-        /* Botão hambúrguer no canto direito */
+      /* Botão hambúrguer no canto direito */
 
       .hamburger-btn {
       position: absolute;
@@ -89,7 +91,7 @@
      transition: 0.3s;
       }
 
-/* Menu lateral do lado direito */
+      /* Menu lateral do lado direito */
 
      .menu-lateral2 {
      height: 100%;
@@ -104,14 +106,14 @@
      z-index: 1000;
       }
 
-.menu-lateral2 a {
-  padding: 12px 20px;
-  text-decoration: none;
-  font-size: 20px;
-  color: white;
-  display: block;
-  transition: 0.3s;
-}
+    .menu-lateral2 a {
+     padding: 12px 20px;
+     text-decoration: none;
+     font-size: 20px;
+     color: white;
+     display: block;
+     transition: 0.3s;
+      }
 
 .menu-lateral2 a:hover {
   background-color: #340752;
@@ -144,60 +146,43 @@
     margin-top: 40px;}
 
 
+/* Container geral - é uma opção para alinhar tudo */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 
-  .retangulo {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border: 2px solid #ccc;
-      border-radius: 12px;
-      padding: 20px;
-      width: 900px;
-      height: 110px;
-      margin: 20px auto;
-      background-color: #f9f9f9;
-      margin-left: 100px;
-      
-    }
+/* Estilo base para ambas as disciplinas */
+.matematica, .portugues {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    width: 900px;
+    height: 110px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    /*margin-left e margin-top não funcionariam para alinhar */
+}
 
-    .retangulo img {
-      width: 100px;
-      height: auto;
-      border-radius: 8px;
-    }
+/* Estilo das imagens */
+.matematica img, .portugues img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
 
-    /*adições*/
-
-    .retangulo2 {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border: 2px solid #ccc;
-      border-radius: 12px;
-      padding: 20px;
-      width: 900px;
-      height: 110px;
-      margin: 20px auto;
-      background-color: #f9f9f9;
-      margin-left: -550px;
-      margin-top: 400px;
-    }
-
-    .retangulo2 img {
-      width: 100px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .conteudo {
-      flex: 1;
-      margin-left: 20px;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 10px;
-
-     
-    }
+/* como ficará dentro do conteúdo */
+.conteudo {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
 
     .texto {
       font-size: 25px;
@@ -308,47 +293,44 @@
 
     <!--Parte principal da página-->
 
-<p class="categoria">Professores</p>
-<h1 class="turma">2DS B</h1>
+    <p class="categoria">Professores</p>
+    <h1 class="turma">2DS_B</h1>
+    <div class="container"> 
 
- <div class="retangulo">
-    <img src="https://lh3.googleusercontent.com/a-/ALV-UjW91oHgn0GCVts_RKDfpXubTb6PGwMBcBUZgymGFiETowfCMLyK=s32-c" alt="Imagem">
-    <div class="conteudo">
-      <h2>Matemática</h2>
-      <p class="texto">Simone</p>
-      <a href="./professoresDetalhes.html" class="detalhes">Detalhes</a>
-  </div>
+    <div class="matematica">
+        <img src="" alt="Foto de Perfil">
+        <div class="conteudo">
+            <h2>Matemática</h2>
+            <p class="texto">Simone</p>
+            <a href="./professoresDetalhes.html" class="detalhes"><b>Detalhes</b></a>
+        </div>
+    </div>
 
-
-<div class="retangulo2">
-  <img src="https://lh3.googleusercontent.com/a-/ALV-UjW91oHgn0GCVts_RKDfpXubTb6PGwMBcBUZgymGFiETowfCMLyK=s32-c" alt="Imagem">
-  <div class="conteudo">
-    <h2>Português</h2>
-    <p class="texto"></p>
-    <a href="./professoresDetalhes.html" class="detalhes">Detalhes</a>
-  </div>
+    <div class="portugues">
+        <img src="" alt="Foto de Perfil">
+        <div class="conteudo">
+            <h2>Português</h2>
+            <p class="texto">Bárbara</p>
+            <a href="./professoresDetalhes.html" class="detalhes"><b>Detalhes</b></a>
+        </div>
+    </div>
 </div>
-</div>
 
 
- 
-  <script>
-  
+ <script>
+    function openMenuLateral() {
+        document.getElementById("menuLateral").style.width = "250px";
+        document.getElementById("overlay").classList.add("show");
+        document.querySelector(".hamburger-btn").style.display = "none";
+    }
 
-     //Código do Menu lateral 2 do hamburger
-  function openMenuLateral2() {
-    document.getElementById("menuLateral2").style.width = "250px";
-    document.getElementById("overlay2").classList.add("show");
-  }
+    function closeMenuLateral() {
+        document.getElementById("menuLateral").style.width = "0";
+        document.getElementById("overlay").classList.remove("show");
+        document.querySelector(".hamburger-btn").style.display = "block";
+    }
 
-  function closeMenuLateral2() {
-    document.getElementById("menuLateral2").style.width = "0";
-    document.getElementById("overlay2").classList.remove("show");
-  }
-
-
-
-  </script>
+</script>
 
 
 </body>

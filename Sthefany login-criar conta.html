@@ -14,7 +14,7 @@
 
 
         body { /* Cor de fundo roxa e aplicação da fonte Jaro*/
-            font-family:none; 
+            font-family:none;
             margin: 0;
             display: flex;
             height: 100vh;
@@ -24,10 +24,10 @@
 
 
         /* Metade do fundo amarela, configurações, configurações de seus elementos e de seu alinhamento*/
-         .sidebar { 
+         .sidebar {
             flex: 1;
             background: linear-gradient(to bottom, #FFDD00, #FFF389);
-            color: rgb(255, 255, 255);
+            color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -43,7 +43,7 @@
         .sidebar p {
             margin-bottom: 100px;
             color: #3813DC;
-            
+           
         }
 
         .total{ /* É para o fundo amarelo não se distorcer*/
@@ -70,7 +70,7 @@
 
 
         /* Bloco branco de Login*/
-        .card { 
+        .card {
             background: white;
             padding: 2rem;
             border-radius: 10px;
@@ -83,7 +83,7 @@
         }
 
         /* Bloco branco de Cadastro*/
-        .card2 { 
+        .card2 {
             background: white;
             padding: 2rem;
             border-radius: 10px;
@@ -110,7 +110,7 @@
         }
 
         /* Botão de submit dos inputs*/
-        button { 
+        button {
             background: #1877f2;
             color: white;
             width: 100%;
@@ -121,14 +121,14 @@
             cursor: pointer;
         }
 
-        button:hover { 
+        button:hover {
             background: #125ec5;
         }
 
-        
+       
 
         /* Mensagem de erro ou sucesso do servidor em validar login do JS do Leo*/
-        .message { 
+        .message {
             margin-top: 10px;
             padding: 10px;
             border-radius: 10px;
@@ -152,9 +152,9 @@
     <div class="card" id="loginCard">
         <h2>Bem-vindo de volta!</h2>
         <p>Não tem conta? <a href="#" onclick="toggleScreens()">Criar conta</a></p>
-        
+       
         <form id="loginForm"> <!-- Bloco Branco do Login-->
-            <div class="form-group"> 
+            <div class="form-group">
                 <input type="email" id="emailLogin" placeholder="Insira seu email" required>
             </div>
             <div class="form-group">
@@ -180,7 +180,7 @@
     <div class="card2 hidden" id="registerCard">
         <h2>Crie sua conta</h2>
         <p>Já tem conta? <a href="#" onclick="toggleScreens()">Fazer login</a></p>
-        
+       
         <form id="registerForm"> <!-- Bloco Branco do Cadastro-->
             <div class="form-group">
                 <input type="text" id="nomeCadastro" placeholder="Nome completo" required>
@@ -235,7 +235,7 @@
                 });
 
                 const data = await response.json();
-                
+               
                 if (data.success) {
                     showMessage('registerMessage', 'Cadastro feito! Agora pode logar!', 'success');
                     setTimeout(toggleScreens, 1500);
@@ -260,7 +260,7 @@
                 });
 
                 const data = await response.json();
-                
+               
                 if (data.success) {
                     // Guarda o ID e o nome do usuário no localStorage
                     localStorage.setItem('userId', data.usuarioId);
